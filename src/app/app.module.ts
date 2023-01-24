@@ -7,11 +7,15 @@ import { ChatComponent } from "./approot/chat/chat.component";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MatCardModule } from "@angular/material/card";
+import { MessageSpeechBubbleComponent } from './approot/chat/message-speech-bubble/message-speech-bubble.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ChatComponent,
+    MessageSpeechBubbleComponent,
   ],
   imports: [
     BrowserModule,
@@ -19,9 +23,13 @@ import { MatButtonModule } from "@angular/material/button";
     BrowserAnimationsModule,
     MatToolbarModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

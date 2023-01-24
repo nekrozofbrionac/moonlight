@@ -1,14 +1,29 @@
 <div class="wrapper-chat-component">
   <div class="wrapper-messages"> <!-- chat message fields--->
-
+    <div *ngFor="let postedMessage of postedMessages"
+         [ngClass]="{ 'selfUser': fromSelfUser(postedMessage), 'notSelfUser': !fromSelfUser(postedMessage) }">
+      <app-message-speech-bubble [message]="postedMessage"
+                                 [selfUser]="fromSelfUser(postedMessage)">
+      </app-message-speech-bubble>
+    </div>
   </div>
-  <div class="wrapper-message-input">
+  <form class="wrapper-message-input"
+        [formGroup]="messageForm"
+        (ngSubmit)="sendMessage()">
     <mat-form-field class="text-field-chat">
-      <textarea matInput
-                cdkTextareaAutosize
-                cdkAutosizeMaxRows="6">
-      </textarea> <!-- if enter is pressed the button is triggered-->
+        <textarea matInput
+                  cdkTextareaAutosize
+                  cdkAutosizeMaxRows="6"
+                  formControlName="messageContent"
+                  (keydown.enter)="sendMessage(); $event.preventDefault()"
+                  (keydown.control.enter)="ctrlEnter()"
+                  [disabled]="sendPending">
+        </textarea>
     </mat-form-field>
-    <button mat-raised-button color="primary">Send</button>
-  </div>
+    <button mat-raised-button
+            color="primary"
+            type="submit">
+      Send
+    </button>
+  </form>
 </div>
