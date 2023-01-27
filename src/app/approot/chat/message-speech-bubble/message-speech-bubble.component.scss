@@ -1,5 +1,5 @@
 @use 'sass:map';
 
-.selfUser {
+.notFromSelfUser {
   background-color: #c2185b; // only if using our primary color - hardcoding is easier than extracting it from mat theme
 }

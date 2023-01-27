@@ -23,6 +23,7 @@
     "@capacitor/android": "^4.6.2",
     "@capacitor/cli": "^4.6.2",
     "@capacitor/core": "^4.6.2",
+    "pocketbase": "^0.10.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"

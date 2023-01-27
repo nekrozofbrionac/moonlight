@@ -10,12 +10,14 @@ import { MatButtonModule } from "@angular/material/button";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatCardModule } from "@angular/material/card";
 import { MessageSpeechBubbleComponent } from './approot/chat/message-speech-bubble/message-speech-bubble.component';
+import { LoginComponent } from './approot/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ChatComponent,
     MessageSpeechBubbleComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

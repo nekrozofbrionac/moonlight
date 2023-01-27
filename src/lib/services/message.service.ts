@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MoonlightMessage, NullMoonlightMessage } from "../types/moonlightMessage";
+import { MoonlightMessage } from "../types/moonlightMessage";
 import { Observable, of } from "rxjs";
 import { MoonlightChannel } from "../types/moonlightChannel";
 
@@ -18,7 +18,8 @@ export class MessageService {
         uuid: 'sjfdlkjhsdflkg',
         timestamp: Date.now(),
         author: {
-          id: 1,
+          id: '',
+          username: "Test User 2",
           name: "Test User 2",
         },
         content: "Hello, World!",

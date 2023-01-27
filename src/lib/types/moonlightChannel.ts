@@ -1,9 +1,11 @@
-import { MoonlightUser } from "./moonlightUser";
+import { MoonlightUser, NullMoonlightUser } from "./moonlightUser";
 
 export interface MoonlightChannel {
+  name: string;
   users: MoonlightUser[];
 }
 
 export const NullMoonlightChannel: MoonlightChannel = {
-  users: [],
+  name: 'Null Channel',
+  users: [NullMoonlightUser],
 };

@@ -1,8 +1,9 @@
-<mat-card [ngClass]="{'selfUser': selfUser}">
+<mat-card [ngClass]="{'notFromSelfUser': !selfUser}">
   <mat-card-header>
     <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      {{ message.content }}
-    </mat-card-content>
+    <mat-card-title>{{message.author.name}}</mat-card-title>
   </mat-card-header>
+  <mat-card-content>
+    {{ message.content }}
+  </mat-card-content>
 </mat-card>

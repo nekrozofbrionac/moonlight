@@ -59,10 +59,14 @@ export class ChatComponent implements OnInit {
   }
 
   sendMessage() {
+    const selfUser = this.loginService.getSelfUser();
+    if (selfUser === undefined) {
+      return;
+    }
     console.log(this.messageForm.value);
     this.sendPending = true;
     this.messageService.send(this.currentChannel, {
-      author: this.loginService.getSelfUser(),
+      author: selfUser,
       content: this.messageForm.value.messageContent ?? '',
       timestamp: Date.now(),
       uuid: '',
@@ -80,6 +84,6 @@ export class ChatComponent implements OnInit {
   }
 
   fromSelfUser(message: MoonlightMessage): boolean {
-    return message.author.id === this.loginService.getSelfUser().id;
+    return message.author.id === this.loginService.getSelfUser()?.id;
   }
 }
