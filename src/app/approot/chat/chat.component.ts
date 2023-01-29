@@ -65,11 +65,12 @@ export class ChatComponent implements OnInit {
     }
     console.log(this.messageForm.value);
     this.sendPending = true;
-    this.messageService.send(this.currentChannel, {
+    this.messageService.send({
+      channel: this.currentChannel,
       author: selfUser,
       content: this.messageForm.value.messageContent ?? '',
-      timestamp: Date.now(),
-      uuid: '',
+      created: Date.now(),
+      id: ''
     }).subscribe((success) => {
       this.loadChat();
       if (success) {

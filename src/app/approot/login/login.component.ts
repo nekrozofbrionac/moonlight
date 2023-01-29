@@ -19,7 +19,10 @@ export class LoginComponent {
 
 
   login() {
-    console.log(this.loginService.getSelfUser());
+    this.loginService.login(this.loginUsername, this.loginPassword).subscribe((success) => {
+      console.log(success);
+      console.log(this.loginService.getSelfUser());
+    })
   }
 
   test() {

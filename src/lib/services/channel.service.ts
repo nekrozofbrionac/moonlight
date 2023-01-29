@@ -35,19 +35,21 @@ export class ChannelService {
         }
       }),
       map((result) => {
+
         return result.items.map(this.extractChannelFromRecord);
       }),
     );
   }
 
-  private extractChannelFromRecord(item: Record): MoonlightChannel {
+  private readonly extractChannelFromRecord: (record: Record) => MoonlightChannel = (item) => {
     return {
+      id: item.id,
       name: item['name'],
       users: item.expand['users'].map(this.extractUserFromRecord),
     };
   }
 
-  private extractUserFromRecord(item: Record): MoonlightUser {
+  private readonly extractUserFromRecord : (item: Record) => MoonlightUser = (item) => {
     return {
       id: item.id,
       username: item['username'],

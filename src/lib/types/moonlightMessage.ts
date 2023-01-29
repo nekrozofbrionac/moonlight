@@ -1,15 +1,18 @@
 import { MoonlightUser, NullMoonlightUser } from "./moonlightUser";
+import { MoonlightChannel, NullMoonlightChannel } from "./moonlightChannel";
 
 export interface MoonlightMessage {
-  uuid: string;
-  timestamp: number;
+  id: string;
+  created: number;
   author: MoonlightUser;
+  channel: MoonlightChannel;
   content: string;
 }
 
 export const NullMoonlightMessage: MoonlightMessage = {
-  uuid: '',
-  timestamp: 0,
+  id: '',
+  created: 0,
   author: NullMoonlightUser,
+  channel: NullMoonlightChannel,
   content: 'NullMoonlightMessage',
 };
