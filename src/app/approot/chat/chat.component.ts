@@ -1,14 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from "@angular/forms";
 import { MessageService } from "../../../lib/services/message.service";
 import { MoonlightMessage } from "../../../lib/types/moonlightMessage";
 import { MoonlightChannel, NullMoonlightChannel } from "../../../lib/types/moonlightChannel";
 import { ChannelService } from "../../../lib/services/channel.service";
 import { LoginService } from "../../../lib/services/login.service";
-
-interface MessageFormControls {
-  messageContent: string;
-}
 
 @Component({
   selector: 'app-chat',
@@ -23,15 +18,12 @@ export class ChatComponent implements OnInit {
 
   currentChannel: MoonlightChannel = NullMoonlightChannel;
   postedMessages: MoonlightMessage[] = [];
-  messageForm = this.formBuilder.group<MessageFormControls>({
-    messageContent: '',
-  });
+  messageContent: string = '';
 
   constructor(
     private readonly loginService: LoginService,
     private readonly channelService: ChannelService,
     private readonly messageService: MessageService,
-    private readonly formBuilder: FormBuilder,
   ) {
   }
 
@@ -63,25 +55,25 @@ export class ChatComponent implements OnInit {
     if (selfUser === undefined) {
       return;
     }
-    console.log(this.messageForm.value);
+    console.log(this.messageContent);
     this.sendPending = true;
     this.messageService.send({
       channel: this.currentChannel,
       author: selfUser,
-      content: this.messageForm.value.messageContent ?? '',
+      content: this.messageContent ?? '',
       created: Date.now(),
       id: ''
     }).subscribe((success) => {
       this.loadChat();
       if (success) {
-        this.messageForm.controls.messageContent.setValue('');
+        this.messageContent = '';
       }
       this.sendPending = false;
     });
   }
 
   ctrlEnter() {
-    this.messageForm.controls.messageContent.setValue(this.messageForm.controls.messageContent.value + '\n');
+    this.messageContent += '\n';
   }
 
   fromSelfUser(message: MoonlightMessage): boolean {

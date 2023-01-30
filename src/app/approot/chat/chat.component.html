@@ -7,23 +7,21 @@
       </app-message-speech-bubble>
     </div>
   </div>
-  <form class="wrapper-message-input"
-        [formGroup]="messageForm"
-        (ngSubmit)="sendMessage()">
+  <div class="wrapper-message-input">
     <mat-form-field class="text-field-chat">
         <textarea matInput
                   cdkTextareaAutosize
                   cdkAutosizeMaxRows="6"
-                  formControlName="messageContent"
+                  [(ngModel)]="messageContent"
                   (keydown.enter)="sendMessage(); $event.preventDefault()"
                   (keydown.control.enter)="ctrlEnter()"
-                  [disabled]="sendPending"> <!-- TODO: use form to disable instead of this directive -->
+                  [disabled]="sendPending">
         </textarea>
     </mat-form-field>
     <button mat-raised-button
             color="primary"
-            type="submit">
+            (click)="sendMessage()">
       Send
     </button>
-  </form>
+  </div>
 </div>
