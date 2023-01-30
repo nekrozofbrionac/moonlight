@@ -1,0 +1,25 @@
+.login-component-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card {
+  width: 50%;
+  max-width: 30em;
+}
+
+.login-card-header {
+  padding-bottom: 1em;
+}
+
+.login-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1em;
+}

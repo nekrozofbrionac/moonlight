@@ -1,5 +1,26 @@
-<input [(ngModel)]="loginUsername">
-<input type="password" [(ngModel)]="loginPassword">
+<div class="login-component-wrapper">
+  <mat-card class="login-card">
+    <mat-card-header class="login-card-header">
+      <mat-card-title>
+        Login
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="login-card-content">
+      <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input matInput
+               [(ngModel)]="loginUsername">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput
+               [(ngModel)]="loginPassword"
+               (keyup.enter)="login()"
+               type="password">
+      </mat-form-field>
+      <button mat-raised-button (click)="login()">Login</button>
+      <button mat-raised-button (click)="test()">test</button>
+    </mat-card-content>
+  </mat-card>
 
-<button (click)="login()">login</button>
-<button (click)="test()">test</button>
+</div>
