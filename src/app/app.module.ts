@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatCardModule } from "@angular/material/card";
 import { MessageSpeechBubbleComponent } from './approot/chat/message-speech-bubble/message-speech-bubble.component';
 import { LoginComponent } from './approot/login/login.component';
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { LoginComponent } from './approot/login/login.component';
     MatToolbarModule,
     MatInputModule,
     MatButtonModule,
+    MatSnackBarModule,
     FormsModule,
     ReactiveFormsModule,
     MatCardModule,

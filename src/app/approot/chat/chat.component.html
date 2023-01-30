@@ -17,7 +17,7 @@
                   formControlName="messageContent"
                   (keydown.enter)="sendMessage(); $event.preventDefault()"
                   (keydown.control.enter)="ctrlEnter()"
-                  [disabled]="sendPending">
+                  [disabled]="sendPending"> <!-- TODO: use form to disable instead of this directive -->
         </textarea>
     </mat-form-field>
     <button mat-raised-button
